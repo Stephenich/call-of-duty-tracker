@@ -3,8 +3,9 @@
   padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: left;
+  align-items: auto;
+  background-image: url(/images/background1.jpg);
 }
 
 .main {
@@ -35,8 +36,8 @@
   align-items: center;
 }
 
-.title a {
-  color: #0070f3;
+.title {
+  color: #f3ba00d7;
   text-decoration: none;
 }
 
