@@ -1,8 +1,9 @@
 import { Formik, Field, Form } from 'formik';
+import styles from './styles/login.module.css';
 
 export function LoginForm() {
   return (
-    <div className="Form">
+    <div className={styles.form}>
       <h1>Login</h1>
       <Formik
         initialValues={{ email: '', password: '' }}

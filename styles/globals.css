@@ -125,3 +125,9 @@ table {
 * {
   box-sizing: border-box;
 }
+
+body {
+  background-image: url(/images/background1.jpg);
+  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
+}
