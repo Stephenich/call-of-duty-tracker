@@ -3,9 +3,9 @@ const jwt = require('jsonwebtoken');
 export default async (req, res) => {
   console.log(req.headers);
 
-  const { authorization } = req.headers;
+  const { cookie } = req.headers;
 
-  const header = jwt.verify(authorization, 'cod');
+  const header = jwt.verify(cookie.replace('token=', ''), 'cod');
 
   console.log(header);
   const myHeaders = new Headers();
@@ -21,7 +21,9 @@ export default async (req, res) => {
   };
 
   const identity = await fetch('https://www.callofduty.com/api/papi-client/crm/cod/v2/identities', requestOptions);
-  const identityResponse = await identity.json();
+  const identityObj = await identity.json();
 
-  res.status(200).json({ identityResponse });
+  const info = identityObj.data.titleIdentities;
+
+  res.status(200).json(info);
 };
