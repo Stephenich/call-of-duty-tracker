@@ -3,9 +3,9 @@ const jwt = require('jsonwebtoken');
 export default async (req, res) => {
   console.log(req.headers);
 
-  const { authorization } = req.headers;
+  const { cookie } = req.headers;
 
-  const header = jwt.verify(authorization, 'cod');
+  const header = jwt.verify(cookie.replace('token=', ''), 'cod');
 
   console.log(header);
   const myHeaders = new Headers();
@@ -21,7 +21,7 @@ export default async (req, res) => {
   };
 
   const wzProfile = await fetch(
-    'https://my.callofduty.com/api/papi-client/stats/cod/v1/title/mw/platform/psn/gamer/Stephenichch/profile/type/wz',
+    'https://my.callofduty.com/api/papi-client/stats/cod/v1/title/mw/platform/psn/gamer/Stephenichch/profile/type/mp',
 
     requestOptions,
   );
