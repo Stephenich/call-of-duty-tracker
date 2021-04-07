@@ -1,0 +1,26 @@
+.container {
+  overflow: hidden;
+  display: flex;
+  border: 1px solid grey;
+  background: grey;
+  border-radius: 10px;
+  padding: 10px;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.rowData {
+  flex-direction: row;
+  display: flex;
+  flex: 1;
+}
+
+.rowTitle {
+  flex: 1;
+  display: flex;
+}
+
+.rowValue {
+  flex: 1;
+  display: flex;
+}

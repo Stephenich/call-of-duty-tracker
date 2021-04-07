@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import Card from './components/Cards';
+import styles from '../../styles/dashboard.module.css';
 
 const Dashboard = () => {
   const [players, setPlayers] = useState([]);
 
   const getPlayersInfo = async () => {
     const response = await axios.get('/api/identity');
-    setPlayer(response.data);
+    setPlayers(response.data);
   };
 
   useEffect(() => {
@@ -14,16 +16,14 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="dashboard-container" style={{ color: 'red' }}>
-      <h1>Dashboard</h1>
-      {players.map((player) => (
-        <div className="players" style={{ color: 'white' }}>
-          <h2>userName: {player.username}</h2>
-          <p>Platform: {player.platform}</p>
-          <p>Game title: {player.title}</p>
-          <p>Game mode: {player.activityType}</p>
-        </div>
-      ))}
+    <div className={styles.container}>
+      <header className={styles.header}>ssss</header>
+      <main className={}>
+        {players.map((player) => (
+          <Card {...player} key={`${player.activityType}-${player.username}`} />
+        ))}
+      </main>
+      <footer className={styles.footer}>Copyright 2021 </footer>
     </div>
   );
 };
