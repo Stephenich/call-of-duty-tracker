@@ -1,6 +1,6 @@
 import styles from './styles/cards.module.css';
 
-function Card({ title, activity, platform, username }) {
+function Card({ title, activityType, platform, username }) {
   return (
     <div className={styles.container}>
       <div className={styles.rowData}>
@@ -17,7 +17,7 @@ function Card({ title, activity, platform, username }) {
       </div>
       <div className={styles.rowData}>
         <div className={styles.rowTitle}>Activity:</div>
-        <div className={styles.rowValue}>{activity}</div>
+        <div className={styles.rowValue}>{activityType}</div>
       </div>
     </div>
   );

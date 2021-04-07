@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Card from './components/Cards';
-import styles from '../../styles/dashboard.module.css';
+import styles from './styles/dashboard.module.css';
 
 const Dashboard = () => {
   const [players, setPlayers] = useState([]);
@@ -17,8 +17,8 @@ const Dashboard = () => {
 
   return (
     <div className={styles.container}>
-      <header className={styles.header}>ssss</header>
-      <main className={}>
+      <header className={styles.header}>Welcome</header>
+      <main className={styles.main}>
         {players.map((player) => (
           <Card {...player} key={`${player.activityType}-${player.username}`} />
         ))}
