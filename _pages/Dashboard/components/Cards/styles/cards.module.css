@@ -7,6 +7,12 @@
   padding: 10px;
   flex-direction: column;
   margin-bottom: 10px;
+  margin-top: 10px;
+  /* background-image: url(/images/background2.jpg); */
+}
+
+.imageContainer {
+  overflow: hidden;
 }
 
 .rowData {

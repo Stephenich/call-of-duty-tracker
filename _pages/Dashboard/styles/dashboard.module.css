@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-image: url(/images/background1.jpg);
+  /* background-color: blue; */
+}
+
+.main {
+  flex: 1;
+}
+
+.header {
+  background-color: grey;
+}
+
+.footer {
+  background-color: grey;
+}
