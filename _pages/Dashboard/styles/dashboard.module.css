@@ -2,18 +2,24 @@
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  background-image: url(/images/background1.jpg);
-  /* background-color: blue; */
+  background-image: url(/images/warzone2.jpg);
 }
 
 .main {
   flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .header {
-  background-color: grey;
+  display: flex;
+  font-size: 30px;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer {
-  background-color: grey;
+  font-size: medium;
+  font-weight: bold;
 }

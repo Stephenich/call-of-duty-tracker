@@ -8,9 +8,9 @@ const cookies = new Cookies();
 
 export function LoginForm() {
   const router = useRouter();
-  if (cookies.get('token')) {
-    router.push('/dashboard');
-  }
+  // if (cookies.get('token')) {
+  //   router.push('/dashboard');
+  // }
   return (
     <div className={styles.form}>
       <h1>Login</h1>

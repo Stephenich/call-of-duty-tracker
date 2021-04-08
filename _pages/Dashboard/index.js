@@ -17,10 +17,12 @@ const Dashboard = () => {
 
   return (
     <div className={styles.container}>
-      <header className={styles.header}>Welcome</header>
+      <header>
+        <h1 className={styles.header}>Select Your User</h1>
+      </header>
       <main className={styles.main}>
         {players.map((player) => (
-          <Card {...player} key={`${player.activityType}-${player.username}`} />
+          <Card {...player} key={`${player.activityType}-${player.username}`} imageUrl="/images/background2.jpg" />
         ))}
       </main>
       <footer className={styles.footer}>Copyright 2021 </footer>
