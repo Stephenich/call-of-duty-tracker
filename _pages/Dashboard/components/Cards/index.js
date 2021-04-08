@@ -1,8 +1,11 @@
 import styles from './styles/cards.module.css';
 
-function Card({ title, activityType, platform, username }) {
+function Card({ title, activityType, platform, username, imageUrl }) {
   return (
     <div className={styles.container}>
+      <div className={styles.imageContainer}>
+        <img src={imageUrl} alt="" />
+      </div>
       <div className={styles.rowData}>
         <div className={styles.rowTitle}>Username:</div>
         <div className={styles.rowValue}>{username}</div>
