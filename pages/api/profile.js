@@ -1,9 +1,11 @@
 const jwt = require('jsonwebtoken');
 
 export default async (req, res) => {
-  console.log(req.headers);
+  // console.log(req.body);
 
   const { cookie } = req.headers;
+
+  const { username, title, activityType, platform } = req.body;
 
   const header = jwt.verify(cookie.replace('token=', ''), 'cod');
 
@@ -21,7 +23,7 @@ export default async (req, res) => {
   };
 
   const wzProfile = await fetch(
-    'https://my.callofduty.com/api/papi-client/stats/cod/v1/title/mw/platform/psn/gamer/Stephenichch/profile/type/mp',
+    `https://my.callofduty.com/api/papi-client/stats/cod/v1/title/${title}/platform/${platform}/gamer/${username}/profile/type/${activityType}`,
 
     requestOptions,
   );
