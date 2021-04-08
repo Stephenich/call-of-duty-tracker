@@ -2,7 +2,7 @@ import styles from './styles/cards.module.css';
 
 function Card({ title, activityType, platform, username, imageUrl }) {
   return (
-    <div className={styles.container}>
+    <a className={styles.container} href={`/details/${username}/${title}/${activityType}/${platform}`}>
       <div className={styles.imageContainer}>
         <img src={imageUrl} alt="" />
       </div>
@@ -22,7 +22,7 @@ function Card({ title, activityType, platform, username, imageUrl }) {
         <div className={styles.rowTitle}>Activity:</div>
         <div className={styles.rowValue}>{activityType}</div>
       </div>
-    </div>
+    </a>
   );
 }
 
