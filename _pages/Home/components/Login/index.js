@@ -8,17 +8,15 @@ const cookies = new Cookies();
 
 export function LoginForm() {
   const router = useRouter();
-  // if (cookies.get('token')) {
-  //   router.push('/dashboard');
-  // }
+  if (cookies.get('token')) {
+    router.push('/dashboard');
+  }
   return (
     <div className={styles.form}>
       <h1>Login</h1>
       <Formik
         initialValues={{ email: 'stephen-1310@hotmail.com', password: '' }}
         onSubmit={async (values) => {
-          // await new Promise((resolve) => setTimeout(resolve, 500));
-          // alert(JSON.stringify(values, null, 2));
           const {
             data: { token },
           } = await axios.post('/api/login', {
