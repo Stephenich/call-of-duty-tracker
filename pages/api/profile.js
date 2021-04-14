@@ -1,15 +1,12 @@
 const jwt = require('jsonwebtoken');
 
 export default async (req, res) => {
-  // console.log(req.body);
-
   const { cookie } = req.headers;
 
   const { username, title, activityType, platform } = req.body;
 
   const header = jwt.verify(cookie.replace('token=', ''), 'cod');
 
-  console.log(header);
   const myHeaders = new Headers();
   myHeaders.append(
     'Cookie',
@@ -22,12 +19,28 @@ export default async (req, res) => {
     redirect: 'follow',
   };
 
-  const wzProfile = await fetch(
+  const profileStats = await fetch(
     `https://my.callofduty.com/api/papi-client/stats/cod/v1/title/${title}/platform/${platform}/gamer/${username}/profile/type/${activityType}`,
 
     requestOptions,
   );
-  const wzProfileResponse = await wzProfile.json();
+  const profileResponse = await profileStats.json();
 
-  res.status(200).json({ wzProfileResponse });
+  console.log(profileResponse);
+
+  // const profile = profileResponse.data.lifetime.mode.br.properties;
+
+  // const profile = profileResponse.data.lifetime.all.properties;
+
+  let profile;
+
+  if (profileResponse.data.type === 'wz') {
+    profile = profileResponse.data.lifetime.mode.br.properties;
+  } else if (profileResponse.data.type === 'mp') {
+    profile = profileResponse.data.lifetime.all.properties;
+  }
+
+  console.log(profile);
+
+  res.status(200).json(profile);
 };
