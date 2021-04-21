@@ -1,23 +1,76 @@
 .container {
   display: flex;
-  align-content: center;
-  justify-content: center;
   min-height: 100vh;
   flex-direction: column;
+}
+
+.cwBackground {
   background-image: url(/images/cw1.jpg);
 }
 
+.wzBackground {
+  background-image: url(/images/background2.jpg);
+}
+
 .header {
-  font-size: 24px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 50px;
   font-weight: bold;
+  color: goldenrod;
+  margin: 20px;
+}
+
+.mainContainer {
+  color: goldenrod;
+  flex-direction: column;
+  display: flex;
+  flex: 1;
 }
 
 .main {
-  flex: 1;
+  max-width: 800px;
+  margin: 0 auto;
   display: flex;
 }
 
+.title {
+  display: flex;
+  font-size: 30px;
+  font-weight: bolder;
+  justify-content: center;
+}
+
+.lifetimeStats {
+  background-color: rgba(0, 0, 0, 0.461);
+  border-radius: 10px;
+  padding: 10px;
+  display: block;
+  min-width: 120px;
+  margin: 15px;
+  color: gold;
+  font-size: 30px;
+}
+
+.lifetimeStats:hover {
+  transform: scale(1.1);
+  color: goldenrod;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: large;
+  /* padding: 20px; */
+  margin: 10px;
+}
+
 .footer {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  color: white;
   font-size: medium;
   font-weight: bold;
 }

@@ -1,0 +1,44 @@
+/* :root {
+  --font-family: Arial, Helvetica, sans-serif;
+} */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: url(/images/background1.jpg);
+  height: 100vh;
+  width: 100vw;
+}
+
+.header {
+  display: flex;
+  height: 10vh;
+  justify-content: center;
+  border-radius: 20px;
+  margin-top: 20px;
+  font-size: 50px;
+  font-weight: bolder;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #d1a137;
+}
+
+.main {
+  flex: 1;
+}
+
+.loginForm {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  min-height: 50vh;
+  margin-top: 100px;
+}
+
+.footer {
+  color: white;
+  font-size: large;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+}

@@ -2,11 +2,12 @@ import styles from './styles/cards.module.css';
 
 const lang = { mw: 'Modern Warfare', cw: 'Cold War', psn: 'Playstation', wz: 'War Zone', mp: 'Multiplayer' };
 
-function Card({ title, activityType, platform, username, imageUrl }) {
+const Card = ({ title, activityType, platform, username }) => {
+  const imagePath = title === 'cw' ? '/images/cw1.jpg' : '/images/background2.jpg';
   return (
     <a className={styles.container} href={`/details/${username}/${title}/${activityType}/${platform}`}>
       <div className={styles.imageContainer}>
-        <img src={imageUrl} alt="" />
+        <img src={imagePath} alt="" />
       </div>
       <div className={styles.rowData}>
         <div className={styles.rowTitle}>Username:</div>
@@ -26,6 +27,6 @@ function Card({ title, activityType, platform, username, imageUrl }) {
       </div>
     </a>
   );
-}
+};
 
 export default Card;

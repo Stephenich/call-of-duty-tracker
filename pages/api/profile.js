@@ -26,21 +26,22 @@ export default async (req, res) => {
   );
   const profileResponse = await profileStats.json();
 
-  console.log(profileResponse);
+  const dataTypes = {
+    warZone: 'wz',
+    multiPlayer: 'mp',
+  };
 
-  // const profile = profileResponse.data.lifetime.mode.br.properties;
-
-  // const profile = profileResponse.data.lifetime.all.properties;
+  const { warZone, multiPlayer } = dataTypes;
 
   let profile;
 
-  if (profileResponse.data.type === 'wz') {
+  if (profileResponse.data.type === warZone) {
     profile = profileResponse.data.lifetime.mode.br.properties;
-  } else if (profileResponse.data.type === 'mp') {
+  } else if (profileResponse.data.type === multiPlayer) {
     profile = profileResponse.data.lifetime.all.properties;
   }
 
-  console.log(profile);
+  // KEEPING FOR REFERENCE const profile = profileResponse.data.type === warZone ? profileResponse.data.lifetime.mode.br.properties : profileResponse.data.lifetime.all.properties;
 
   res.status(200).json(profile);
 };

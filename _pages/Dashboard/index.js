@@ -22,7 +22,7 @@ const Dashboard = () => {
       </header>
       <main className={styles.main}>
         {players.map((player) => (
-          <Card {...player} key={`${player.activityType}-${player.username}`} imageUrl="/images/background2.jpg" />
+          <Card {...player} key={`${player.activityType}-${player.username}`} />
         ))}
       </main>
       <footer className={styles.footer}>Copyright 2021 </footer>
