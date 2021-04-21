@@ -11,7 +11,7 @@ const lang = {
   deaths: 'Deaths:',
   topTwentyFive: 'Top Twentyfive:',
   scorePerMinute: 'Score per minute:',
-  topTen: 'Top Ten:"',
+  topTen: 'Top Ten: ',
   topFive: 'Top Five:',
   gamesPlayed: 'Total Games:',
   timePlayed: 'Total Time:',
@@ -37,31 +37,42 @@ const Statsboard = (props) => {
 
   useEffect(() => {
     if (username) getPlayersStats();
-  }, username);
+  }, [username]);
 
-  console.log(stats);
-
-  const statsArr = [];
-
-  for (const property in stats) {
-    if (lang[property])
-      statsArr.push(
-        <div>
-          <p key={property}>
-            {' '}
-            {lang[property]} {stats[property]}
-          </p>
-        </div>,
+  const statsArr = Object.keys(stats).map((key) => {
+    if (lang[key])
+      return (
+        <span className={styles.lifetimeStats} key={key}>
+          {' '}
+          {lang[key]} {stats[key]}
+        </span>
       );
-  }
+  });
+  //  const statsArr = [];
+  // REFERENCE: for (const property in stats) {
+  //   if (lang[property])
+  //     statsArr.push(
+  //       <div>
+  //         <p key={property}>
+  //           {' '}
+  //           {lang[property]} {stats[property]}
+  //         </p>
+  //       </div>,
+  //     );
+  // }
+  // const imagePath = title === 'cw' ? '/images/cw1.jpg' : ' /images/background2.jpg' : ;
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${title === 'cw' ? styles.cwBackground : styles.wzBackground}`}>
+      {/* <img className={styles.image} style={{ backgroundImage: `url(${imagePath})` }} /> */}
       <header className={styles.header}>
         <h1>Statsboard</h1>
       </header>
-      <main className={styles.main}>
-        <div> {statsArr} </div>
+      <main className={styles.mainContainer}>
+        <h2 className={styles.title}>Your Lifetime Stats</h2>
+        <div className={styles.main}>
+          <div className={styles.stats}> {statsArr} </div>
+        </div>
       </main>
       <footer className={styles.footer}> Copyright 2021</footer>
     </div>
