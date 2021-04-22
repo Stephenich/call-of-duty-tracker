@@ -1,6 +1,5 @@
 import styles from './styles/cards.module.css';
-
-const lang = { mw: 'Modern Warfare', cw: 'Cold War', psn: 'Playstation', wz: 'War Zone', mp: 'Multiplayer' };
+import lang from '../../../Lang';
 
 const Card = ({ title, activityType, platform, username }) => {
   const imagePath = title === 'cw' ? '/images/cw1.jpg' : '/images/background2.jpg';

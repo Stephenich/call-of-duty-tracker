@@ -41,7 +41,15 @@ export default async (req, res) => {
     profile = profileResponse.data.lifetime.all.properties;
   }
 
-  // KEEPING FOR REFERENCE const profile = profileResponse.data.type === warZone ? profileResponse.data.lifetime.mode.br.properties : profileResponse.data.lifetime.all.properties;
+  const formattedProfile = {
+    ...profile,
+    kdratio: profile.kdRatio || profile.kdratio,
+    scorePerMinute: Math.round(profile.scorePerMinute * 100) / 100,
+  };
 
-  res.status(200).json(profile);
+  delete formattedProfile.kdRatio;
+
+  formattedProfile.kdratio = Math.round(formattedProfile.kdratio * 100) / 100;
+
+  res.status(200).json(formattedProfile);
 };
