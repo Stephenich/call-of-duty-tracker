@@ -1,4 +1,6 @@
+// const puppeteer = require('puppeteer-core');
 const puppeteer = require('puppeteer');
+const chrome = require('chrome-aws-lambda');
 const jwt = require('jsonwebtoken');
 
 export default async (req, res) => {
@@ -6,7 +8,15 @@ export default async (req, res) => {
   const { username, password } = body;
   console.log(body);
 
-  const browser = await puppeteer.launch({ headless: false });
+  const browser = await puppeteer.launch(
+    process.env.NODE_ENV === 'production'
+      ? {
+          args: chrome.args,
+          executablePath: await chrome.executablePath,
+          headless: chrome.headless,
+        }
+      : { headless: true },
+  );
   const page = await browser.newPage();
   await page.goto('https://profile.callofduty.com/cod/login');
   //   await page.waitFor(3000);
