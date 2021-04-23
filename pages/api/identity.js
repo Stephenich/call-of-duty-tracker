@@ -3,7 +3,13 @@ const jwt = require('jsonwebtoken');
 export default async (req, res) => {
   const { cookie } = req.headers;
 
-  const header = jwt.verify(cookie.replace('token=', ''), 'cod');
+  let header;
+
+  try {
+    header = jwt.verify(cookie.replace('token=', ''), 'cod');
+  } catch (error) {
+    return res.status(401).json({});
+  }
 
   const myHeaders = new Headers();
   myHeaders.append(

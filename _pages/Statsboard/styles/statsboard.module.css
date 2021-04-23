@@ -41,17 +41,6 @@
   font-weight: bolder;
   justify-content: center;
 }
-/* 
-.lifetimeStats {
-  background-color: rgba(0, 0, 0, 0.461);
-  border-radius: 10px;
-  padding: 10px;
-  display: block;
-  min-width: 120px;
-  margin: 15px;
-  color: gold;
-  font-size: 30px;
-} */
 
 .stats {
   display: flex;
