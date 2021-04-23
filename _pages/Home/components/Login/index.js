@@ -8,9 +8,9 @@ const cookies = new Cookies();
 
 const LoginForm = () => {
   const router = useRouter();
-  // if (cookies.get('token')) {
-  //   router.push('/dashboard');
-  // }
+  if (cookies.get('token')) {
+    router.push('/dashboard');
+  }
   return (
     <div className={styles.container}>
       <header className={styles.header}>

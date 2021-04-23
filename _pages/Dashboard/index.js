@@ -2,13 +2,23 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Card from './components/Cards';
 import styles from './styles/dashboard.module.css';
+import Cookies from 'universal-cookie';
+import { useRouter } from 'next/router';
+
+const cookies = new Cookies();
 
 const Dashboard = () => {
   const [players, setPlayers] = useState([]);
+  const router = useRouter();
 
   const getPlayersInfo = async () => {
-    const response = await axios.get('/api/identity');
-    setPlayers(response.data);
+    try {
+      const response = await axios.get('/api/identity');
+      setPlayers(response.data);
+    } catch (error) {
+      cookies.remove('token');
+      router.push('/');
+    }
   };
 
   useEffect(() => {
