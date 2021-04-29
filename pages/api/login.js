@@ -1,4 +1,3 @@
-// const puppeteer = require('puppeteer-core');
 const puppeteer = require('puppeteer');
 const chrome = require('chrome-aws-lambda');
 const jwt = require('jsonwebtoken');
@@ -19,13 +18,11 @@ export default async (req, res) => {
   );
   const page = await browser.newPage();
   await page.goto('https://profile.callofduty.com/cod/login');
-  //   await page.waitFor(3000);
   await page.type('#username', username, { delay: 10 });
   await page.type('#password', password, { delay: 10 });
-  // await page.screenshot({ path: 'login.png' });
   await page.click('#login-button');
   await page.waitForNavigation();
-  console.log('New Page URL:', page.url());
+  // console.log('New Page URL:', page.url());
   const cookies = await page.cookies();
   console.log(cookies);
 
