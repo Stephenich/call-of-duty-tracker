@@ -17,9 +17,20 @@
   font-size: 30px;
   justify-content: center;
   align-items: center;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 70px;
 }
 
 .footer {
   font-size: medium;
   font-weight: bold;
+  display: flex;
+  justify-content: center;
+  color: gold;
 }

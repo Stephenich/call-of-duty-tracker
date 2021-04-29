@@ -4,6 +4,7 @@ import Card from './components/Cards';
 import styles from './styles/dashboard.module.css';
 import Cookies from 'universal-cookie';
 import { useRouter } from 'next/router';
+import LogoutButton from '../Logout';
 
 const cookies = new Cookies();
 
@@ -30,6 +31,9 @@ const Dashboard = () => {
       <header>
         <h1 className={styles.header}>Select Your User</h1>
       </header>
+      <div className={styles.buttonContainer}>
+        <LogoutButton />
+      </div>
       <main className={styles.main}>
         {players.map((player) => (
           <Card {...player} key={`${player.activityType}-${player.username}`} />

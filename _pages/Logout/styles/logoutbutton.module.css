@@ -1,0 +1,8 @@
+.button {
+  display: flex;
+  background-color: rgba(34, 34, 11, 0.509);
+  justify-content: center;
+  padding: 10px;
+  border-radius: 10px;
+  color: gold;
+}
