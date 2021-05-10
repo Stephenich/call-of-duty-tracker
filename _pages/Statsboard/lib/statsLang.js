@@ -1,4 +1,4 @@
-const lang = {
+const statsLang = {
   cw: { kdratio: 'Kill Death Ratio', deaths: 'Deaths', wins: 'Wins', kills: 'Kills', gamesPlayed: 'Total Games' },
   mw: {
     wins: 'Wins',
@@ -18,4 +18,4 @@ const lang = {
   },
 };
 
-export default lang;
+export default statsLang;

@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import styles from './styles/statsboard.module.css';
-import lang from '../Lang/statsLang';
+import statsLang from './lib/statsLang';
 import StatCard from './components/StatsCards';
+import lang from '../lib/lang';
 
 const Statsboard = (props) => {
   const [stats, setStats] = useState([]);
@@ -31,12 +32,19 @@ const Statsboard = (props) => {
         <h1>Statsboard</h1>
       </header>
       <main className={styles.mainContainer}>
-        <h2 className={styles.title}>Your Lifetime Stats</h2>
+        <div className={styles.title}>
+          <h2 className={styles.title}>Your Lifetime Stats: {title === 'cw' ? lang.cw : lang.wz}</h2>
+        </div>
         <div className={styles.main}>
           <div className={styles.stats}>
-            {Object.keys(lang[title]).map((statId) => {
+            {Object.keys(statsLang[title]).map((statId) => {
               return (
-                <StatCard className={styles.statsCard} key={statId} title={lang[title][statId]} value={stats[statId]} />
+                <StatCard
+                  className={styles.statsCard}
+                  key={statId}
+                  title={statsLang[title][statId]}
+                  value={stats[statId]}
+                />
               );
             })}
           </div>
