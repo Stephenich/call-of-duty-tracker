@@ -1,5 +1,5 @@
 import styles from './styles/cards.module.css';
-import lang from '../../../Lang';
+import lang from '../../../lib/lang';
 
 const Card = ({ title, activityType, platform, username }) => {
   const imagePath = title === 'cw' ? '/images/cw1.jpg' : '/images/background2.jpg';
